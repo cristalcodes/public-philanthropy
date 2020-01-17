@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_000514) do
+ActiveRecord::Schema.define(version: 2020_01_17_171557) do
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "organization_id"
+    t.decimal "amount", precision: 10, scale: 2
+    t.string "honoree"
+    t.text "comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
