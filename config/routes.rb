@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
   end
+  resources :user do
+    resources :donations, only: [:new, :create]
+  end
+
+  resources :donations, only: [:new, :create]
+
 
 
 end
