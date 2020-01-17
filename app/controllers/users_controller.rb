@@ -1,3 +1,4 @@
 class UsersController < ApplicationRecord
 
-end 
+#Do I even need a users controller?
+end
