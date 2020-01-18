@@ -5,6 +5,10 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new
   end
 
+  # def show 
+  #
+  # end
+
   private
 
   def organization_params

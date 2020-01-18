@@ -1,6 +1,10 @@
 class DonationsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @donations = current_user.donations
+  end
+
   def new
     @donation = current_user.donations.build
     # @donation.organization.build

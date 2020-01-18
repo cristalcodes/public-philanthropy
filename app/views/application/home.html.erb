@@ -6,7 +6,7 @@
 <p>Your Donations</p>
 <ul>
   <% current_user.donations.each do |donation| %>
-  <li> <%= link_to donation.organization.name %> - <%= donation.date %> - <%= donation.amount %></li>
+  <li> <%= donation.date %> | <%= donation.organization.name%> | <%= donation.amount %> | <%= link_to "See full details", user_donation_path(donation.user, donation) %> </li>
   <% end %>
 </ul>
 
