@@ -10,6 +10,10 @@ class DonationsController < ApplicationController
     # @donation.organization.build
   end
 
+  def show
+    @donation = current_user.donations.find_by(id: params[:id])
+  end
+
   def create
     @donation = current_user.donations.build(donation_params)
     if @donation.save
@@ -19,9 +23,28 @@ class DonationsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @donation = current_user.donations.find_by(id: params[:id])
   end
+
+  def update
+    @donation = current_user.donations.find_by(id: params[:id])
+    @donation.update(donation_params)
+    if @donation.save
+      redirect_to user_donation_path(@donation.user, @donation)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @donation = current_user.donations.find_by(id: params[:id])
+    @donation.delete
+      flash[:notice] = "Donation deleted."
+      redirect_to donations_path
+  end
+
+
 
 
 

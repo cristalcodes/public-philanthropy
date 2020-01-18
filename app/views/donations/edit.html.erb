@@ -1,0 +1,17 @@
+<%= form_for @donation do |f|%>
+  <%= f.label "Select an organization:" %><br>
+    <%= f.collection_select :organization_id, current_user.organizations.all.order(:name), :id, :name, include_blank: true %><br>
+
+<p>or</p>
+
+
+  <%= f.label :date %><br>
+  <%= f.text_field :date %><br>
+  <%= f.label :amount %><br>
+  <%= f.text_field :amount %><br>
+  <%= f.label :honoree %><br>
+  <%= f.text_field :honoree %><br>
+  <%= f.label :comments %><br>
+  <%= f.text_area :comments %><br>
+  <%= f.submit %>
+<% end %>
