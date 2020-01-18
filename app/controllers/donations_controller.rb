@@ -8,4 +8,8 @@ class DonationsController < ApplicationController
 
   end
 
+  private
+
+
+
 end

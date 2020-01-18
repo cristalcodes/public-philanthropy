@@ -1,10 +1,13 @@
 <h3>Record a New Donation: </h3>
 <%= form_for @donation do |f|%>
+  <p>Organization </p>
+  <%= f.label :date %><br>
+  <%= f.text_field :date %><br>
   <%= f.label :amount %><br>
   <%= f.text_field :amount %><br>
   <%= f.label :honoree %><br>
   <%= f.text_field :honoree %><br>
   <%= f.label :comments %><br>
-  <%= f.text_field :comments %><br>
+  <%= f.text_area :comments %><br>
   <%= f.submit %>
 <% end %>
