@@ -9,7 +9,7 @@ class DonationsController < ApplicationController
   def create
     @donation = current_user.donations.build(donation_params)
     if @donation.save
-      redirect_to @donation
+      redirect_to user_donation_path(@donation.user, @donation)
     else
       render :new
     end
@@ -25,8 +25,9 @@ class DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:user_id, :organization_id, :date, :amount, :honoree, :comments, organization_attributes: :name)
+    params.require(:donation).permit(:date, :amount, :honoree, :comments, :user_id, :organization_id, organization_attributes: [:name])
   end
+
 
 
 
