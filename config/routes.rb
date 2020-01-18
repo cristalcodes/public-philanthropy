@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :user do
-    resources :donations, only: [:new, :create, :show]
+    resources :donations, only: [:index, :new, :create, :show]
   end
 
   resources :donations #, only: [:new, :create]
+
+  resources :organizations, only: [:show]
 
 
 

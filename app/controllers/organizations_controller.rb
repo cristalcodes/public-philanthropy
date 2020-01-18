@@ -2,12 +2,14 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @organization = Organization.new
+    @organization = curren_user.organizations.build
+    #changed to use ActiveRecord Associations, but may not work.
   end
 
-  # def show 
-  #
-  # end
+  def show
+    @organization = current_user.organizations.find_by(id: params[:id])
+    @donations = @organization.donations.find_by(user_id: params[:user_])
+  end
 
   private
 

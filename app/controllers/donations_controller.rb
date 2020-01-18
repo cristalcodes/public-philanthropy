@@ -41,7 +41,7 @@ class DonationsController < ApplicationController
     @donation = current_user.donations.find_by(id: params[:id])
     @donation.delete
       flash[:notice] = "Donation deleted."
-      redirect_to donations_path
+      redirect_to user_donations_path(current_user)
   end
 
 
