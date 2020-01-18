@@ -1,6 +1,17 @@
 <h3>Record a New Donation: </h3>
 <%= form_for @donation do |f|%>
-  <p>Organization </p>
+<%= f.hidden_field :user_id, value: current_user %>
+
+  <%= f.label "Select an organization:" %><br>
+    <%= f.collection_select :organization_id, current_user.organizations.all.order(:name), :id, :name, include_blank: true %><br>
+
+<p>or</p>
+
+    <%= f.fields_for :organization, @donation.build_organization do |org_form| %>
+     <%= org_form.label "Add Organization" %><br>
+     <%= org_form.text_field :name %><br><br>
+    <% end %>
+
   <%= f.label :date %><br>
   <%= f.text_field :date %><br>
   <%= f.label :amount %><br>
