@@ -1,3 +1,5 @@
+<h1>You've donated to these organizations recently: </h1>
+
 <ul>
   <% @organizations.recent.uniq.each do |org| %>
   <li> <%= link_to org.name, user_organization_path(current_user, org) %></li>

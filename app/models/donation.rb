@@ -5,6 +5,4 @@ class Donation < ApplicationRecord
   scope :recent, -> { order(date: :desc) }
   accepts_nested_attributes_for :organization, reject_if: :all_blank
 
-
-
 end

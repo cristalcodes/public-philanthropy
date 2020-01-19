@@ -1,13 +1,14 @@
 class DonationsController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
     @donations = current_user.donations
   end
 
   def new
     @donation = current_user.donations.build
-    # @donation.organization.build
+
   end
 
   def show
@@ -45,17 +46,11 @@ class DonationsController < ApplicationController
   end
 
 
-
-
-
-
   private
 
   def donation_params
     params.require(:donation).permit(:date, :amount, :honoree, :comments, :user_id, :organization_id, organization_attributes: [:name])
   end
-
-
 
 
 end

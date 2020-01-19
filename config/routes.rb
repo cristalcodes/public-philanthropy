@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
+
+
   resources :user do
     resources :donations, only: [:index, :new, :create, :show]
       resources :organizations, only: [:index, :show]
