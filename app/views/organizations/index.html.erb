@@ -1,5 +1,5 @@
 <ul>
-  <% @organizations.each do |org| %>
-  <li>  <%= link_to org.name, user_organization_path(current_user, org) %></li>
+  <% @organizations.recent.uniq.each do |org| %>
+  <li> <%= link_to org.name, user_organization_path(current_user, org) %></li>
   <% end  %>
 </ul>

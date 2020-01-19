@@ -3,7 +3,7 @@
 <%= f.hidden_field :user_id, value: current_user %>
 
   <%= f.label "Select an organization:" %><br>
-    <%= f.collection_select :organization_id, current_user.organizations.all.order(:name), :id, :name, include_blank: true %><br>
+    <%= f.collection_select :organization_id, Organization.all.order(:name), :id, :name, include_blank: true %><br>
 
 <p>or</p>
 

@@ -5,7 +5,7 @@
   <% else  %>
     <p>Your Donations</p>
     <ul>
-      <% current_user.donations.each do |donation| %>
+      <% current_user.donations.recent.each do |donation| %>
       <li> <%= donation.date %> | <%= donation.organization.name%> | <%= donation.amount %> | <%= link_to "See full details", user_donation_path(donation.user, donation) %> </li>
       <% end %>
     </ul>
