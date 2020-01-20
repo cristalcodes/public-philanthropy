@@ -1,7 +1,6 @@
-Your donations to <%= @organization.name %>
-<ul>
-    <% @organization.donations.each do |donation| %>
-    <li>  <%= donation.date %> | <%= donation.amount %> | <%= link_to "See donation details.", user_donation_path(donation.user, donation) %>
-</li>
-    <%end  %>
-</ul>
+<h4>Your donations to <%= @organization.name %></h4>
+
+<% @organization.donations.each do |donation| %>
+<p><%= donation.date%> | <%= donation.amount %> | <%= link_to "See donation details.", user_donation_path(donation.user, donation) %></p>
+
+<%end  %>
