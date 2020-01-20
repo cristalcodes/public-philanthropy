@@ -7,11 +7,11 @@ class OrganizationsController < ApplicationController
 
   def new
     @organization = current_user.organizations.build
-    #changed to use ActiveRecord Associations, but may not work.
+
   end
 
   def show
-    @organization = current_user.organizations.find_by(id: params[:id])
+    @organization = Organization.find_by(id: params[:id])
   end
 
 
