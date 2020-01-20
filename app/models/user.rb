@@ -5,6 +5,8 @@ class User < ApplicationRecord
 has_many :donations
 has_many :organizations, through: :donations
 
+validates :name, presence:true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
