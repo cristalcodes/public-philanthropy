@@ -1,6 +1,4 @@
 <%= form_for @donation do |f|%>
-<%= f.hidden_field :user_id, value: current_user %>
-
 <%= f.label "Select an organization:" %><br>
 <%= f.collection_select :organization_id, Organization.all.order(:name).uniq, :id, :name, include_blank: true %><br>
 
