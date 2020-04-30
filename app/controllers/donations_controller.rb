@@ -1,6 +1,8 @@
 class DonationsController < ApplicationController
   before_action :authenticate_user!
 
+  def by_organization
+  end
 
   def index
     @donations = current_user.donations

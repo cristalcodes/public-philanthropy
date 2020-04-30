@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
 
+  get 'user/:id/donations/by_organization', to: 'donations#by_organization'
 
   resources :user do
     resources :donations, only: [:index, :new, :create, :show]
